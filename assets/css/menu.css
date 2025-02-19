@@ -1,0 +1,114 @@
+/* Styles du menu principal */
+.nav-link {
+    @apply text-white hover:text-blue-400 transition-colors;
+}
+
+/* Menu déroulant */
+.group {
+    position: relative;
+}
+
+.group > button {
+    position: relative;
+    z-index: 51;
+}
+
+.group > div {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 256px;
+    background-color: #FFFFFF;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease-in-out;
+    z-index: 1000;
+}
+
+.group:hover > div {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.group > div a {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    color: #1F2937;
+    transition: all 0.2s ease;
+    position: relative;
+    font-weight: 500;
+}
+
+.group > div a:hover {
+    background-color: #EFF6FF;
+    color: #2563EB;
+}
+
+.group > div a:not(:last-child) {
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.group > div a svg {
+    margin-right: 0.75rem;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Menu mobile */
+#mobile-menu {
+    transition: opacity 0.3s ease-in-out;
+}
+
+#mobile-menu.hidden {
+    display: none;
+}
+
+#mobile-menu .bg-white {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+#mobile-menu:not(.hidden) .bg-white {
+    transform: translateX(0);
+}
+
+.mobile-submenu {
+    transition: all 0.3s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.mobile-submenu:not(.hidden) {
+    max-height: 500px;
+    padding: 0.5rem 0;
+}
+
+/* Styles spécifiques pour le menu mobile */
+#mobile-menu .mobile-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #1F2937;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+#mobile-menu .mobile-link:hover {
+    background-color: #EFF6FF;
+    color: #2563EB;
+}
+
+#mobile-menu .mobile-submenu a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #4B5563;
+    transition: all 0.2s ease;
+}
+
+#mobile-menu .mobile-submenu a:hover {
+    color: #2563EB;
+}
